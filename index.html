@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe ✨ Cyber-Cute & Aesthetic Security for Students</title>
+
+<meta name="google-site-verification" content="XXNPtwf2kR3fv8EWIrAQQLBaUo_BKKhCuKM2fsqgkBI" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Outfit & Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti & Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberPink: '#FF6EB4',
+                        cyberHotPink: '#FF1493',
+                        cyberLavender: '#E6E6FA',
+                        cyberPurple: '#B026FF',
+                        cyberDeepPurple: '#2A0845',
+                        cyberMint: '#7FFFD4',
+                        cyberRose: '#FFB6C1',
+                        cyberDark: '#120524',
+                        cyberDarkCard: '#1D0C36'
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0F041C;
+            color: #F8F4FF;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-card {
+            background: rgba(35, 14, 61, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 110, 180, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(255, 20, 147, 0.15);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 110, 180, 0.6);
+            box-shadow: 0 12px 40px 0 rgba(255, 20, 147, 0.35);
+        }
+        .pink-glow {
+            box-shadow: 0 0 25px rgba(255, 110, 180, 0.4);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(255, 110, 180, 0.6);
+        }
+        .bg-gradient-pink {
+            background: linear-gradient(135deg, #FF6EB4 0%, #B026FF 100%);
+        }
+        .bg-gradient-soft {
+            background: linear-gradient(135deg, rgba(255,110,180,0.15) 0%, rgba(176,38,255,0.15) 100%);
+        }
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+        .animate-blob {
+            animation: floatBlob 10s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Ambient Glowing Background Blobs -->
+    <div class="fixed top-10 left-10 w-96 h-96 bg-cyberPink/20 rounded-full blur-3xl pointer-events-none animate-blob"></div>
+    <div class="fixed bottom-10 right-10 w-96 h-96 bg-cyberPurple/25 rounded-full blur-3xl pointer-events-none animate-blob" style="animation-delay: 3s;"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-cyberPink/20 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-pink flex items-center justify-center text-white text-2xl shadow-lg pink-glow">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyberPink via-cyberLavender to-cyberMint font-heading tracking-wide">
+                            CyberSafe ✨
+                        </span>
+                        <p class="text-xs text-cyberPink/80 font-medium">Cyber-Cute Security Hub</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#hero" class="text-sm font-semibold hover:text-cyberPink transition-colors">Home</a>
+                    <a href="#modules" class="text-sm font-semibold hover:text-cyberPink transition-colors">Modules</a>
+                    <a href="#password-lab" class="text-sm font-semibold hover:text-cyberPink transition-colors">Password Lab</a>
+                    <a href="#scam-simulator" class="text-sm font-semibold hover:text-cyberPink transition-colors">Phish Lab</a>
+                    <a href="#quizzes" class="text-sm font-semibold hover:text-cyberPink transition-colors">Quizzes</a>
+                    <a href="#ethics" class="text-sm font-semibold hover:text-cyberPink transition-colors">Ethics Guide</a>
+                    <button onclick="openModal('admin-modal')" class="px-4 py-2 text-xs font-bold bg-cyberPurple/40 hover:bg-cyberPurple/70 text-cyberLavender border border-cyberPink/40 rounded-full transition-all">
+                        <i class="fa-solid fa-lock text-cyberPink mr-1.5"></i> Admin Portal
+                    </button>
+                    <button onclick="openModal('auth-modal')" class="px-5 py-2.5 text-xs font-bold bg-gradient-pink hover:opacity-90 text-white rounded-full transition-all shadow-md pink-glow">
+                        <i class="fa-solid fa-sparkles mr-1.5"></i> Login / Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative text-center py-12 md:py-20 flex flex-col items-center">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-cyberPink/20 text-cyberPink border border-cyberPink/40 mb-6">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Stay Cyber Smart, Bestie! ✨
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Empower Your Digital Life with <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberPink via-purple-300 to-cyberMint text-glow">
+                    Cyber-Cute Awareness 💕
+                </span>
+            </h1>
+            <p class="max-w-2xl text-cyberLavender/90 text-base sm:text-lg mb-8 leading-relaxed">
+                Protect your accounts, outsmart online scammers, and master password security with interactive tools built to keep you safe and confident online.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#modules" class="px-8 py-3.5 text-sm font-bold bg-gradient-pink text-white rounded-full shadow-lg pink-glow hover:scale-105 transition-all">
+                    Explore Modules ✨
+                </a>
+                <a href="#password-lab" class="px-8 py-3.5 text-sm font-bold glass-card text-cyberPink hover:bg-cyberPink/20 rounded-full transition-all border border-cyberPink/40">
+                    Test Password Strength 🔐
+                </a>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyberPink to-purple-300">
+                        Cybersecurity Learning Modules 📚
+                    </h2>
+                    <p class="text-cyberLavender/80 text-sm mt-1">Interactive lessons tailored for modern student life.</p>
+                </div>
+            </div>
+            <div id="modules-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        </section>
+
+        <!-- Password Strength & Generator Lab -->
+        <section id="password-lab" class="glass-card rounded-3xl p-8 border border-cyberPink/30 space-y-6">
+            <div class="text-center max-w-xl mx-auto">
+                <span class="text-xs font-bold tracking-widest text-cyberPink uppercase">Password Studio</span>
+                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyberPink via-purple-300 to-cyberMint">
+                    Password Analyzer & Cute Generator 👑
+                </h2>
+                <p class="text-xs text-cyberLavender/80 mt-2">Test your password security or generate an unbreakable, aesthetic password!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <label class="block text-xs font-bold text-cyberPink">Test Your Password:</label>
+                    <input type="password" id="pass-input" oninput="analyzePassword(this.value)" placeholder="Enter password..." class="w-full px-4 py-3 bg-cyberDarkCard/90 border border-cyberPink/30 rounded-2xl focus:outline-none focus:border-cyberPink text-cyberLavender">
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold">
+                            <span>Strength: <span id="pass-strength-label" class="text-cyberPink">None</span></span>
+                            <span id="pass-crack-time" class="text-cyberLavender/70">Estimated crack time: -</span>
+                        </div>
+                        <div class="w-full bg-cyberDarkCard h-3 rounded-full overflow-hidden border border-cyberPink/20">
+                            <div id="pass-bar" class="h-full bg-gradient-pink w-0 transition-all duration-500"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-cyberPink/20 text-center space-y-4">
+                    <h3 class="text-sm font-bold text-cyberLavender">Need a Strong Cute Password? ✨</h3>
+                    <div class="flex items-center gap-2">
+                        <input type="text" id="gen-pass-display" readonly placeholder="Click generate..." class="w-full px-4 py-2.5 bg-cyberDark text-cyberMint font-mono text-xs rounded-xl border border-cyberPink/30 text-center font-bold">
+                        <button onclick="copyGeneratedPass()" class="px-3 py-2.5 bg-cyberPink/20 text-cyberPink rounded-xl border border-cyberPink/40 hover:bg-cyberPink/40 text-xs">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                    <button onclick="generateCutePassword()" class="w-full py-2.5 bg-gradient-pink text-white font-bold text-xs rounded-xl shadow-md pink-glow hover:scale-[1.02] transition-all">
+                        Generate Password 💕
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spot the Scam Phishing Simulator -->
+        <section id="scam-simulator" class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyberPink to-purple-300">
+                    Phish Lab: Spot the Scam 📱
+                </h2>
+                <p class="text-xs text-cyberLavender/80 mt-1">Can you spot the phishing message before clicking?</p>
+            </div>
+
+            <div id="scam-card-container" class="max-w-xl mx-auto glass-card p-6 rounded-3xl border border-cyberPink/30 space-y-6"></div>
+        </section>
+
+        <!-- Quiz Suite -->
+        <section id="quizzes" class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyberPink to-cyberMint">
+                    Interactive Cybersecurity Quiz 🧠
+                </h2>
+                <p class="text-xs text-cyberLavender/80 mt-1">Test your cybersecurity skills and earn badges!</p>
+            </div>
+
+            <div id="quiz-container" class="max-w-2xl mx-auto glass-card p-8 rounded-3xl border border-cyberPink/30 text-center space-y-6"></div>
+        </section>
+
+        <!-- Digital Ethics & Citizenship Guide -->
+        <section id="ethics" class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyberPink to-purple-300">
+                    Digital Citizenship & Professional Ethics 💖
+                </h2>
+                <p class="text-xs text-cyberLavender/80 mt-1">Responsible technology use, netiquette, and student data rights.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-cyberPink/30 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyberPink/20 text-cyberPink flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-cyberPink">Positive Netiquette</h3>
+                    <p class="text-xs text-cyberLavender/80 leading-relaxed">Treat online interactions with empathy. Cyberbullying and toxic behavior leave permanent digital footprints.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-cyberPink/30 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyberPurple/20 text-cyberPurple flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-cyberPurple">Data Privacy Rights</h3>
+                    <p class="text-xs text-cyberLavender/80 leading-relaxed">Students have rights regarding how educational platforms store and process personal information.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-cyberPink/30 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyberMint/20 text-cyberMint flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-cyberMint">IT Professional Ethics</h3>
+                    <p class="text-xs text-cyberLavender/80 leading-relaxed">Building software responsibly means prioritizing user consent, encryption, and data safety by design.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-card border-t border-cyberPink/20 py-8 text-center text-xs text-cyberLavender/60 mt-20">
+        <p>© 2026 CyberSafe Website for Students. Designed with 💕 for Cybersecurity Awareness.</p>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-cyberDark/80 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full p-6 rounded-3xl border border-cyberPink/40 space-y-6 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold text-cyberPink"><i class="fa-solid fa-sliders mr-2"></i> Admin Control Portal</h3>
+                <button onclick="closeModal('admin-modal')" class="text-cyberLavender/60 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-cyberLavender">Add New Learning Module</h4>
+                <input type="text" id="admin-mod-title" placeholder="Module Title" class="w-full px-4 py-2 bg-cyberDarkCard border border-cyberPink/30 rounded-xl text-xs text-white">
+                <textarea id="admin-mod-desc" placeholder="Module Description..." class="w-full px-4 py-2 bg-cyberDarkCard border border-cyberPink/30 rounded-xl text-xs text-white h-20"></textarea>
+                <button onclick="addModuleFromAdmin()" class="w-full py-2 bg-gradient-pink text-white font-bold text-xs rounded-xl">Add Module ✨</button>
+            </div>
+
+            <div class="space-y-4 pt-4 border-t border-cyberPink/20">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-cyberLavender">Student Analytics Overview</h4>
+                <div class="h-48">
+                    <canvas id="adminChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 bg-cyberDark/80 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
+        <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-cyberPink/40 space-y-4 text-center">
+            <div class="flex justify-end">
+                <button onclick="closeModal('auth-modal')" class="text-cyberLavender/60 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <h3 class="text-xl font-bold text-cyberPink">Student Login 💕</h3>
+            <input type="text" placeholder="Student ID or Email" class="w-full px-4 py-2.5 bg-cyberDarkCard border border-cyberPink/30 rounded-xl text-xs text-white">
+            <input type="password" placeholder="Password" class="w-full px-4 py-2.5 bg-cyberDarkCard border border-cyberPink/30 rounded-xl text-xs text-white">
+            <button onclick="closeModal('auth-modal')" class="w-full py-2.5 bg-gradient-pink text-white font-bold text-xs rounded-xl shadow-md pink-glow">Log In ✨</button>
+        </div>
+    </div>
+
+    <!-- Scripting -->
+    <script>
+        let modules = [
+            { id: 1, title: 'Phishing & Fake Messages 💌', tag: 'Threats', desc: 'Learn how to detect suspicious emails, fake login pages, and deceptive SMS links.' },
+            { id: 2, title: 'Password Protection & 2FA 🔐', tag: 'Security', desc: 'Master multi-factor authentication and password manager strategies.' },
+            { id: 3, title: 'Social Media & Privacy Settings 🌸', tag: 'Privacy', desc: 'Control your digital footprint and keep personal data safe from public scraping.' }
+        ];
+
+        let quizData = [
+            {
+                q: "What is the best reaction to receiving a suspicious link asking to verify your student account?",
+                options: ["Click immediately to avoid account suspension", "Ignore and report the message to school IT", "Forward it to friends to check", "Reply asking if it is real"],
+                answer: 1
+            },
+            {
+                q: "Which password is the strongest?",
+                options: ["Password123!", "Student2026", "✨PinkFairy99#Shield", "admin"],
+                answer: 2
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let score = 0;
